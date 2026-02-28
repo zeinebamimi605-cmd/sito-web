@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodotti - Tousse</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- GLightbox per ingrandimento immagini -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+</head>
+<body>
+
+    <header style="text-align:center; padding:30px 0; background-color:#61a5c2;">
+        <h1 style="color:white;">I Prodotti di Tousse</h1>
+        <a href="index.html" style="color:white; text-decoration:none; font-size:18px;">← Torna alla Home</a>
+    </header>
+
+
+     
+<div class="search-container">
+  <input type="text" id="searchInput" placeholder="🔍 Cerca prodotto...">
+</div>
+
+
+
+    <section class="prodotti-page">
+    <h2>PRODOTTI</h2>
+    <P>Collezione Marrakech</P>
+    <div class="product-grid">
+        <div class="product">
+            <a href="cp.jpg" class="glightbox">
+                <img src="cp.jpg" alt="ROYAL FES TEA SET">
+            </a>
+            <h3>MAJORELLE</h3>
+            <p class="descrizione">Marrakech Majorelle
+esclusiva collezione di tessili d'arredo, simbolo del calore e dell'eleganza dei Riad di Marrakesh.
+100% Design d'Autore: Motivi mandala caleidoscopici che fondono geometria sacra e arte tessile.
+Dettagli Preziosi: Stampe ad alta definizione con pigmenti vibranti, dal blu cobalto all'oro speziato.
+Atmosfera Orientale: Un mix di decori arabo-andalusi progettati per trasformare il living in un'oasi di comfort.
+Custom & Unique: Ogni pezzo può essere personalizzato scegliendo il tessuto preferito e la dimensione desiderata per adattarsi perfettamente ai tuoi spazi.
+Autenticità: Creazioni uniche su misura che richiamano i ricami millenari e i colori dei souk del Marocco.</p>
+            <p class="prezzo">€70,00</p>
+            <button onclick='addToCart({
+                 name: "MAJORELLE",
+                 price: 70,
+                 img: "cp.jpg",
+                 quantity: 1
+    })'>Aggiungi al carrello</button>
+        </div>
+        <div class="product">
+            <a href="non.jpg" class="glightbox">
+                <img src="non.jpg" alt="GEMSTONE GLOW">
+            </a>
+            <h3>GEMSTONE GLOW</h3>
+            <p class="descrizione">L'autentico rituale dell'ospitalità marocchina, un’esplosione di luce e colori per la tua tavola.
+Design Imperiale: Un set composto da una teiera finemente cesellata e bicchieri in vetro artigianale, decorati con motivi dorati che riflettono la luce come gemme.
+Palette "Rainbow Medina": Bicchieri in tonalità vibranti dal blu zaffiro al verde smeraldo, dal rubino all'ambra per un'esperienza visiva indimenticabile.
+Artigianato d'Eccellenza: Ogni pezzo è modellato a mano, simbolo della maestria degli artigiani del metallo e del vetro.
+Pezzo Unico Custom: Come per tutta la linea Majorelle, puoi richiedere combinazioni di colori personalizzate per i bicchieri, rendendo il tuo set unico al mondo.
+Atmosfera da Mille e una Notte: Ideale per trasformare un semplice tè in un momento di puro lusso orientale.</p>
+            <p class="prezzo">€110,00</p>
+            <button onclick='addToCart({
+                 name: "ROYAL FES TEA SET",
+                 price: 110,
+                 img: "non.jpg",
+                 quantity: 1
+    })'>Aggiungi al carrello</button>
+        </div>
+        <div class="product">
+            <a href="zu.jpg" class="glightbox">
+                <img src="zu.jpg" alt="RAW CLAY">
+            </a>
+            <h3>RAW CLAY</h3>
+            <p class="descrizione">L'eleganza primordiale della terra marocchina, modellata dal fuoco e dal tempo.
+Riflessi d'Argilla: Una collezione in terracotta autentica, dove ogni pezzo cattura la luce calda del tramonto sulle mura di Marrakech.
+Geometrie Ancestrali: Decori bianchi stesi a mano che danzano sulle forme sinuose di vasi, ciotole e anfore, richiamando simboli millenari.
+Pezzo Unico al Mondo: Ogni manufatto è un'opera singola; le piccole variazioni nella cottura e nel tratto rendono il tuo acquisto irripetibile.
+Total Custom: Scegli la forma e la capienza ideale per le tue esigenze; creiamo pezzi su misura che si adattano perfettamente al tuo spazio.
+Essenza Materica: Un ritorno alle origini dell'artigianato, perfetto per chi cerca un design organico, caldo e profondamente umano.</p>
+            <p class="prezzo">€85,00</p>
+            <button onclick='addToCart({
+                 name: "RAW CLAY",
+                 price: 85,
+                 img: "zu.jpg",
+                 quantity: 1
+    })'>Aggiungi al carrello</button>
+        </div>
+        <div class="product">
+            <a href="set.jpg" class="glightbox">
+                <img src="set.jpg" alt="Acus Graphia">
+            </a>
+            <h3>ACUS GRAPHIA</h3>
+            <p class="descrizione">L’arte della tavola imperiale, disegnata a mano e cucita sui tuoi desideri.
+Sinfonia di Geometrie: Motivi mandala e arabeschi complessi che trasformano ogni pezzo in un tassello di un mosaico millenario.
+Libertà Creativa Custom: Un set che non ha limiti. Puoi scegliere il numero di pezzi, la forma dei piatti e la palette di colori per creare una tavola che esiste solo a casa tua.
+Pezzo Unico al Mondo: Ogni pennellata è eseguita a mano libera; l'unicità del tratto garantisce un prodotto "One-off" impossibile da replicare in serie.
+Dettagli Smaltati: Finiture lucide e colori vibranti che resistono nel tempo, portando l'eleganza dei palazzi di Marrakech nel tuo quotidiano.
+Eccellenza Artigianale: Ceramica di alta qualità modellata e decorata dai maestri di Fes e Marrakech, icone del design mediterraneo.</p>
+            <p class="prezzo">€300,00</p>
+            <button onclick='addToCart({
+                 name: "Acus Graphia",
+                 price: 300,
+                 img: "set.jpg",
+                 quantity: 1
+    })'>Aggiungi al carrello</button>
+        </div>
+        <div class="product">
+            <a href="tajin.jpg" class="glightbox">
+                <img src="tajin.jpg" alt="Fil d'Arômes">
+            </a>
+            <h3>FIL D’ARÔMES</h3>
+            <p class="descrizione">L'arte del gusto si veste di un ricamo eterno, per una tavola che incanta i sensi.
+Savoir-Faire a Tavola: Una Tajine artigianale dove la precisione del pennello imita la delicatezza di un ago, creando trame geometriche vibranti.
+Atelier Custom: Progetta la tua Tajine ideale; puoi personalizzare la palette di colori e scegliere le dimensioni del piatto per un pezzo unico che parli di te.
+Pezzo Unico "One-Off": La decorazione manuale garantisce che ogni sfumatura di blu e arancio sia irripetibile, rendendo il tuo acquisto un'opera d'arte esclusiva.
+Lusso Sensoriale: Una ceramica lucida che riflette la luce, trasformando ogni ricetta in un momento di pura eleganza marocchina.
+Legame di Design: Il "filo" conduttore della nostra collezione che unisce la funzionalità della cucina alla bellezza del decoro sartoriale.</p>
+            <p class="prezzo">€150,00</p>
+            <button onclick='addToCart({
+                 name: "",
+                 price: 150,
+                 img: "tajin.jpg",
+                 quantity: 1
+    })'>Aggiungi al carrello</button>
+        </div>
+        <div class="product">
+            <a href="salone.jpg" class="glightbox">
+                <img src="salone.jpg" alt="MAJESTÉ">
+            </a>
+            <h3>MAJESTÉ</h3>
+            <p class="descrizione">L'eccellenza dell'abitare: un intero universo artigianale cucito attorno ai tuoi sogni.
+Sinfonia di Intrecci: Dai cuscini rifiniti a mano alle trame del tavolo ottagonale, ogni elemento è parte di un unico grande ricamo spaziale.
+Architettura Custom: Una creazione totale e su misura; progettiamo ogni dettaglio, dalle dimensioni dei divani ai motivi delle piastrelle dipinte a mano, per un ambiente unico al mondo.
+Legno e Luce: Il soffitto e le pareti in legno intagliato "cuciono" la luce del lampadario di cristallo in un gioco di ombre e riflessi regali.
+Pezzo Unico "Signature": Non una semplice stanza, ma un'opera "One-off" irripetibile, dove l'artigianato di Marrakech raggiunge la sua massima espressione sartoriale.
+Atelier dell'Abitare: Ogni salone è un progetto esclusivo, cucito punto per punto dai nostri maestri artigiani per trasformare la tua casa in un palazzo.</p>
+            <p class="prezzo">€20.000,00 - €100.000,00</p>
+            <button onclick='addToCart({
+                 name: "MAJESTÉ",
+                 price: 10000,
+                 img: "salone.jpg",
+                 quantity: 1
+    })'>Aggiungi al carrello</button>
+        </div>
+        <div class="product">
+            <a href="tiles.jpg" class="glightbox">
+                <img src="tiles.jpg" alt="PORTA AUREA">
+            </a>
+            <h3>PORTA AUREA</h3>
+            <p class="descrizione">L’ingresso che definisce il valore della tua dimora: un mosaico di piastrelle uniche e un portale cucito nel legno e nell'oro.
+Ricamo di Pietra: Migliaia di piastrelle dipinte a mano formano una trama infinita, un ricamo che avvolge l'ingresso con la precisione di un tessuto regale.
+Il Portale d'Oro: Porta in legno massiccio con intagli "sartoriali" che richiamano la lucentezza dell'oro, creando un contrasto magnetico con il blu delle piastrelle.
+Creazione Custom Totale: Progettiamo l'intero portale su misura; puoi scegliere il disegno delle piastrelle e la finitura della porta per un pezzo "One-off" senza eguali.
+Materiali Immortali: Un connubio di ceramica, legno pregiato e dettagli che richiamano il ferro battuto, studiato per durare nei secoli.
+Savoir-Faire Monumentale: Ogni centimetro è lavorato a mano libera, garantendo l'unicità assoluta di ogni singola geometria.</p>
+            <p class="prezzo">€25.000,00</p>
+            <button onclick='addToCart({
+                 name: "PORTA AUREA",
+                 price: 25000,
+                 img: "tiles.jpg",
+                 quantity: 1
+    })'>Aggiungi al carrello</button>
+        </div>
+        <div class="product">
+            <a href="CARPET.jpg" class="glightbox">
+                <img src="CARPET.jpg" alt="FIL D’HISTOIRE">
+            </a>
+            <h3>FIL D’HISTOIRE</h3>
+            <p class="descrizione">L'essenza del Marocco cucita a mano: una collezione dove il filo si trasforma in un'opera d'arte da calpestare o indossare.
+Trame Millenarie: Tappeti e cuscini realizzati al telaio, dove ogni ricamo segue pattern tribali che sono la firma autentica dei maestri tessitori.
+Abiti "One-Off": Capi tradizionali ricamati con fili di seta e lana, pezzi unici sartoriali che vestono la persona di cultura e lusso artigianale.
+Sinfonia di Fibre: Un mix materico di lana, cotone e filati naturali, intrecciati per creare un'esperienza tattile calda e avvolgente.
+Colori dell'Anima: Pigmenti naturali che spaziano dal rosso zafferano al blu profondo, "cuciti" insieme in geometrie che illuminano ogni ambiente.
+Custom Atelier: Possibilità di commissionare tappeti su misura, scegliendo la densità dei nodi e il "racconto" dei decori per un investimento eterno.</p>
+            <p class="prezzo">€1.500,00</p>
+            <button onclick='addToCart({
+                 name: "FIL D’HISTOIRE",
+                 price: 1500,
+                 img: "CARPET.jpg",
+                 quantity: 1
+    })'>Aggiungi al carrello</button>
+        </div>
+    </div>
+</section>
+<script>
+function updateCartCount() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let totalItems = 0;
+
+  cart.forEach(item => {
+      totalItems += item.quantity;
+  });
+
+  const counter = document.getElementById("cartCount");
+  if(counter) counter.textContent = totalItems;
+}
+
+
+function addToCart(product) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // controlla se esiste già
+  let existing = cart.find(item => item.name === product.name);
+
+  if (existing) {
+      existing.quantity += 1;
+  } else {
+      cart.push(product);
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  alert(product.name + " aggiunto al carrello!");
+}
+
+
+updateCartCount();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("searchInput");
+    const products = document.querySelectorAll(".product");
+
+    function highlight(text, query) {
+        if (!query) return text;
+        const regex = new RegExp(`(${query})`, "gi");
+        return text.replace(regex, '<span class="highlight">$1</span>');
+    }
+
+    searchInput.addEventListener("input", () => {
+        const query = searchInput.value.toLowerCase();
+
+        products.forEach(product => {
+            const titleEl = product.querySelector("h3");
+            const descEl = product.querySelector(".descrizione");
+
+            const titleText = titleEl.getAttribute("data-original") || titleEl.textContent;
+            const descText = descEl.getAttribute("data-original") || descEl.textContent;
+            titleEl.setAttribute("data-original", titleText);
+            descEl.setAttribute("data-original", descText);
+
+            if (titleText.toLowerCase().includes(query) || descText.toLowerCase().includes(query)) {
+                product.style.display = "block";
+
+                titleEl.innerHTML = highlight(titleText, query);
+                descEl.innerHTML = highlight(descText, query);
+            } else {
+                product.style.display = "none";
+            }
+        });
+    });
+});
+</script>

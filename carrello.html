@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrello - Tousse</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body {
+    font-family:'Times New Roman', serif;
+    margin:0; padding:0; background:#f9f9f9; color:#080808;
+}
+header {
+    text-align:center; padding:30px 0; background:#61a5c2; color:white;
+}
+main {
+    display:flex; max-width:1200px; margin:20px auto; gap:20px; flex-wrap:wrap;
+}
+/* Colonna prodotti */
+#productsColumn {
+    flex:2; min-width:300px;
+}
+.product-item {
+    display:flex; align-items:center; gap:15px; margin-bottom:15px;
+    padding:10px; background:#fff; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+.product-item img {
+    width:100px; height:100px; object-fit:cover; border-radius:8px;
+    transition: transform 0.2s ease-in-out;
+}
+.product-item img:hover {
+    transform: scale(1.2);
+}
+.product-details h4 { margin:0 0 5px 0; }
+.product-details p { margin:0; }
+.quantityControls { display:flex; align-items:center; gap:5px; margin-top:5px; }
+.quantityControls button { padding:3px 8px; border:none; border-radius:5px; background:#61a5c2; color:white; cursor:pointer; }
+
+/* Colonna riepilogo */
+#summaryColumn {
+    flex:1; min-width:300px; background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+#summaryColumn h3 { margin-top:0; }
+#cartSummary { margin-bottom:15px; }
+#cartSummary div { display:flex; justify-content:space-between; margin-bottom:8px; }
+#cartTotal { font-size:20px; font-weight:bold; margin-bottom:15px; }
+#customerInfo input, #customerInfo textarea, #paymentForm input, #paymentForm select {
+    width:100%; padding:8px; margin-bottom:10px; border-radius:5px; border:1px solid #ccc;
+}
+#messageBox textarea { resize:none; }
+#paymentMethods button { padding:10px; margin-right:5px; border:none; border-radius:5px; background:#61a5c2; color:white; cursor:pointer; }
+#paymentMethods button.active { background:#497b91; }
+#payNow { margin-top:15px; background:#e67e22; color:white; padding:12px; width:100%; border:none; border-radius:5px; cursor:pointer; }
+</style>
+</head>
+<body>
+<header>
+<h1>Il Tuo Carrello</h1>
+<a href="index.html" style="color:white;">← Torna alla Home</a>
+</header>
+
+<main>
+<!-- Colonna prodotti -->
+<div id="productsColumn">
+<h3>Prodotti nel carrello</h3>
+<div id="cartItems"></div>
+</div>
+
+<!-- Colonna riepilogo -->
+<div id="summaryColumn">
+<h3>Riepilogo Ordine</h3>
+
+<div id="cartSummary"></div>
+<p>Totale: €<span id="cartTotal">0</span></p>
+
+<!-- Box Cliente -->
+<div id="customerInfo">
+<h4>Dati Cliente</h4>
+<input type="text" id="customerName" placeholder="Nome e Cognome">
+<input type="email" id="customerEmail" placeholder="Email">
+<input type="tel" id="customerPhone" placeholder="Telefono">
+</div>
+
+<!-- Box Messaggio -->
+<div id="messageBox">
+<h4>Note Ordine</h4>
+<textarea id="orderMessage" rows="4" placeholder="Lascia un messaggio (opzionale)"></textarea>
+</div>
+
+<!-- Metodo Pagamento -->
+<div id="paymentBox">
+<h4>Metodo di Pagamento</h4>
+<div id="paymentMethods">
+<button type="button" data-method="card" class="active">Carta</button>
+<button type="button" data-method="paypal">PayPal</button>
+<button type="button" data-method="cod">Contrassegno</button>
+</div>
+
+<form id="paymentForm">
+<div id="cardFields">
+<input type="text" id="cardName" placeholder="Nome titolare">
+<input type="text" id="cardNumber" placeholder="Numero Carta">
+<input type="month" id="cardExpiry" placeholder="MM/AA">
+<input type="text" id="cardCVV" placeholder="CVV">
+</div>
+<div id="paypalFields" style="display:none;">
+<p>Verrai reindirizzato a PayPal dopo aver confermato l'ordine.</p>
+</div>
+<div id="codFields" style="display:none;">
+<p>Paga alla consegna</p>
+<input type="text" id="codName" placeholder="Nome e Cognome">
+<input type="text" id="codAddress" placeholder="Indirizzo di consegna">
+</div>
+</form>
+
+<button id="payNow">Paga Ora</button>
+</div>
+</main>
+
+<script>
+
+// CARRELLO //
+function loadCart(){
+    let cart=JSON.parse(localStorage.getItem("cart"))||[];
+    let container=document.getElementById("cartItems");
+    let summary=document.getElementById("cartSummary");
+    let totalEl=document.getElementById("cartTotal");
+    if(!container || !summary || !totalEl) return;
+
+    container.innerHTML="";
+    summary.innerHTML="";
+    let total=0;
+
+    cart.forEach((item,index)=>{
+        total+=item.price*item.quantity;
+        // Colonna prodotti
+        let div=document.createElement("div");
+        div.className="product-item";
+        div.innerHTML=`
+            <img src="${item.img}" alt="${item.name}">
+            <div class="product-details">
+                <h4>${item.name}</h4>
+                <p>€${item.price.toLocaleString()}</p>
+                <div class="quantityControls">
+                    <button onclick="changeQuantity(${index},-1)">-</button>
+                    <span>${item.quantity}</span>
+                    <button onclick="changeQuantity(${index},1)">+</button>
+                    <button onclick="removeProduct(${index})" style="background:red;">Rimuovi</button>
+                </div>
+            </div>
+        `;
+        container.appendChild(div);
+
+        // Riepilogo colonna destra
+        let sumDiv=document.createElement("div");
+        sumDiv.innerHTML=`<span>${item.name} x${item.quantity}</span><span>€${(item.price*item.quantity).toLocaleString()}</span>`;
+        summary.appendChild(sumDiv);
+    });
+
+    totalEl.textContent=total.toLocaleString();
+}
+
+function changeQuantity(index,delta){
+    let cart=JSON.parse(localStorage.getItem("cart"))||[];
+    cart[index].quantity+=delta;
+    if(cart[index].quantity<1) cart[index].quantity=1;
+    localStorage.setItem("cart",JSON.stringify(cart));
+    loadCart();
+}
+
+function removeProduct(index){
+    let cart=JSON.parse(localStorage.getItem("cart"))||[];
+    cart.splice(index,1);
+    localStorage.setItem("cart",JSON.stringify(cart));
+    loadCart();
+}
+
+document.addEventListener("DOMContentLoaded",()=>{ loadCart(); });
+
+
+// PAGAMENTO //
+
+let selectedMethod="card";
+const methodButtons=document.querySelectorAll("#paymentMethods button");
+methodButtons.forEach(btn=>{
+    btn.addEventListener("click",()=>{
+        methodButtons.forEach(b=>b.classList.remove("active"));
+        btn.classList.add("active");
+        selectedMethod=btn.getAttribute("data-method");
+
+        document.getElementById("cardFields").style.display=selectedMethod==="card"?"block":"none";
+        document.getElementById("paypalFields").style.display=selectedMethod==="paypal"?"block":"none";
+        document.getElementById("codFields").style.display=selectedMethod==="cod"?"block":"none";
+    });
+});
+
+document.getElementById("payNow").addEventListener("click",()=>{
+    let cart=JSON.parse(localStorage.getItem("cart"))||[];
+    if(cart.length===0){ alert("Il carrello è vuoto!"); return; }
+
+    let customerName=document.getElementById("customerName").value;
+    let customerEmail=document.getElementById("customerEmail").value;
+    let customerPhone=document.getElementById("customerPhone").value;
+    let orderMessage=document.getElementById("orderMessage").value;
+
+    if(!customerName || !customerEmail){ alert("Inserisci almeno nome e email!"); return; }
+
+    let paymentDetails={};
+    if(selectedMethod==="card"){
+        paymentDetails={
+            cardName:document.getElementById("cardName").value,
+            cardNumber:document.getElementById("cardNumber").value,
+            cardExpiry:document.getElementById("cardExpiry").value,
+            cardCVV:document.getElementById("cardCVV").value
+        };
+    } else if(selectedMethod==="cod"){
+        paymentDetails={
+            codName:document.getElementById("codName").value,
+            codAddress:document.getElementById("codAddress").value
+        };
+        if(!paymentDetails.codName || !paymentDetails.codAddress){
+            alert("Inserisci nome e indirizzo per la consegna!");
+            return;
+        }
+    }
+
+    console.log({
+        cart,
+        customerName,
+        customerEmail,
+        customerPhone,
+        orderMessage,
+        paymentMethod:selectedMethod,
+        paymentDetails
+    });
+
+    alert("Ordine registrato! Controlla console per dettagli.");
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chi Siamo - Tousse</title>
+<link rel="stylesheet" href="style.css">
+<!-- GLightbox per galleria immagini -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+<!-- Striscia decorativa sotto l'header -->
+<div class="header-stripe"></div>
+
+<style>
+.header-stripe {
+    width: 100%;
+    height: 100px; /* altezza più visibile */
+    background-size: cover;    
+    background-position: center;
+    background-repeat: no-repeat;
+    /*  in caso l'immagine non si carichi */
+    background-color: #f0ead2;
+}
+</style>
+
+
+
+</head>
+<body>
+
+<header style="text-align:center; padding:30px 0; background-color:#61a5c2;">
+    <h1 style="color:white;">LA NOSTRA STORIA</h1>
+    <a href="index.html" style="color:white; text-decoration:none; font-size:18px;">← Torna alla Home</a>
+</header>
+
+<!-- Striscia decorativa sotto l'header -->
+<div class="header-stripe"></div>
+
+<section class="chi-page">
+
+    <!-- BLOCCO 1 -->
+    <div class="chi-block">
+        <div class="chi-text">
+            <h2>NOTRE RÉCIT</h2>
+            <p>
+                Nati nel cuore della <strong>Medina di Fès nel 1950</strong>, operiamo oggi su un asse internazionale 
+                che unisce la tradizione millenaria marocchina all'avanguardia del design europeo. 
+                La nostra presenza si divide tra la sede storica di <strong>Fès</strong> e i nostri atelier di 
+                <strong>Torino, Londra, Parigi e New York</strong>, garantendo un ponte diretto tra produzione ancestrale e lusso contemporaneo.
+                <br><br>
+                <strong>Fès | Il Cuore della Tradizione:</strong> La nostra sede operativa dove i maestri
+                artigiani trasformano terra, legno e metallo in opere d'arte viventi, seguendo 
+                tecniche tramandate nel tempo. 
+                <br><br>
+                <strong>Torino, Londra, Parigi | L’Atelier del Design:</strong> Centri dedicati alla progettazione sartoriale internazionale, 
+                dove ogni progetto architettonico risponde ai canoni del lusso moderno. 
+                <br><br>
+                <strong>Visione Globale:</strong> Un'autorità nel settore del <strong>"One-Off"</strong>, capace di coordinare grandi progetti architettonici: dai saloni monumentali ai portali d'oro, fino a creazioni uniche totalmente personalizzabili.
+            </p>
+        </div>
+        <div class="chi-img">
+            <a href="fes.png" class="glightbox" data-gallery="block1">
+                <img src="fes.png" alt="Artigianato marocchino di lusso">
+            </a>
+            <a href="london.png" class="glightbox" data-gallery="block1" style="display:none;">
+            <a href="torino.png" class="glightbox" data-gallery="block1" style="display:none;"></a>
+            <a href="newyork.png" class="newyork.png" data-gallery="block1" style="display:none;"></a>
+            <a href="" class="" data-gallery="block1" style="display:none;"></a>
+
+        </div>
+    </div>
+
+    <!-- BLOCCO 2 -->
+    <div class="chi-block reverse">
+        <div class="chi-text">
+            <h2>LES MAINS DE FÈS</h2>
+            <p>
+                Dietro ogni nostra creazione si nascondono artigiani devoti alla lavorazione manuale, custodi di un'esperienza decennale che trasforma la materia in patrimonio.<br><br>
+                <strong>Tecnica "Acus Graphia":</strong> Decorazione manuale a mano libera che ricama geometrie su ceramica e legno.<br>
+                <strong>Lavorazione "One-Off":</strong> Ogni oggetto è un esemplare unico, numerato e irripetibile.<br>
+                <strong>Controllo di Qualità:</strong> Un ponte costante tra la terra di <b>Fès</b> e il design di <b>Torino, Londra, Parigi e New York</b>.
+            </p>
+        </div>
+        <div class="chi-img">
+            <a href="tessitrice.jpg" class="glightbox" data-gallery="block2">
+                <img src="tessitrice.jpg" alt="Lavorazione artigianale">
+            </a>
+            <a href="oo.jpg" class="glightbox" data-gallery="block2" style="display:none;"></a>
+            <a href="nn.jpg" class="glightbox" data-gallery="block2" style="display:none;"></a>
+            <a href="pp.jpg" class="glightbox" data-gallery="block2" style="display:none;"></a>
+            <a href="04.jpg" class="glightbox" data-gallery="block3" style="display:none;"></a>
+            <a href="05.jpg" class="glightbox" data-gallery="block3" style="display:none;"></a>
+        </div>
+    </div>
+
+    <!-- BLOCCO 3 -->
+    <div class="chi-block">
+        <div class="chi-text">
+            <h2>Design e Tradizione</h2>
+            <p>
+                Le nostre collezioni fondono lo stile contemporaneo
+                con le radici del Marocco imperiale.
+                Ogni creazione è un ponte tra passato e futuro.
+            </p>
+        </div>
+        <div class="chi-img">
+            <a href="pottery.jpg" class="glightbox" data-gallery="block3">
+                <img src="pottery.jpg" alt="Design marocchino">
+            </a>
+            <a href="01.jpg" class="glightbox" data-gallery="block3" style="display:none;"></a>
+            <a href="02.jpg" class="glightbox" data-gallery="block3" style="display:none;"></a>
+            <a href="03.jpg" class="glightbox" data-gallery="block3" style="display:none;"></a>
+        </div>
+    </div>
+
+</section>
+
+<footer class="chi-footer">
+    © 2026 Tousse. Tutti i diritti riservati.
+</footer>
+
+<!-- JS GLightbox -->
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+    const lightbox = GLightbox({
+        selector: '.glightbox',
+        loop: true
+    });
+</script>
+
+</body>
+</html>
